@@ -18,7 +18,7 @@ public class UserTests {
 	private UserDao userDao;
 	@Test
 	public void select() {
-		List<User> userList = userDao.select();
+		List<User> userList = userDao.select(null);
 		System.out.println(userList);
 	}
 }
