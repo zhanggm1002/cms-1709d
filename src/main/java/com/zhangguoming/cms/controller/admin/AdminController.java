@@ -17,6 +17,11 @@ public class AdminController {
 		return "admin/home";
 	}
 	
+	@RequestMapping("/welcome")
+	public String welcome() {
+		return "admin/welcome";
+	}
+	
 	@RequestMapping("/user")
 	public String user() {
 		return "admin/user";
