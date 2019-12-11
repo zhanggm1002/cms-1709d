@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.zhangguoming.cms.dao.UserDao">
 	<select id="select" resultType="User">
 		select * from cms_user
@@ -15,15 +14,30 @@
 	</select>
 	
 	<insert id="insert">
-		insert into cms_user(username,password)
-		values(#{user.username},#{user.password})
+		insert into cms_user (username, password, nickname, 
+	      birthday, gender, locked, 
+	      score, role, url, create_time, 
+	      update_time)
+	    values (#{user.username}, #{user.password}, #{user.nickname}, 
+	      #{user.birthday}, #{user.gender}, #{user.locked}, 
+	      #{user.score}, #{user.role}, #{user.url}, #{user.createTime}, 
+	      #{user.updateTime})
 	</insert>
 	
 	<update id="update">
-		update cms_user set 
-		username=#{user.usernmae},
-		password=#{user.password}
-		where id=#{user.id}
+		update cms_user
+	    set username = #{user.username},
+	      password = #{user.password},
+	      nickname = #{user.nickname},
+	      birthday = #{user.birthday},
+	      gender = #{user.gender},
+	      locked = #{user.locked},
+	      score = #{user.score},
+	      role = #{user.role},
+	      url = #{user.url},
+	      create_time = #{user.createTime},
+	      update_time = #{user.updateTime}
+	    where id = #{user.id}
 	</update>
 	
 	<delete id="deleteById">
@@ -31,7 +45,6 @@
 	</delete>
 	
 	<delete id="deleteByIds">
-		delete from cms_user where id in(${id})
+		delete from cms_user where id in(${ids})
 	</delete>
-	
 </mapper>

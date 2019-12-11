@@ -4,54 +4,54 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.pojo.VoteContent;
 
-public interface UserDao {
+public interface VoteContentDao {
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
 	 * @param: @param id
 	 * @param: @return      
-	 * @return: User      
+	 * @return: VoteContent      
 	 * @throws
 	 */
-	User selectById(@Param("id") Integer id);
+	VoteContent selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
-	 * @Description: 根据User查询列表  
-	 * @param: @param user
+	 * @Description: 根据VoteContent查询列表  
+	 * @param: @param voteContent
 	 * @param: @return      
-	 * @return: List<User>      
+	 * @return: List<VoteContent>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<VoteContent> select(@Param("voteContent") VoteContent voteContent);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
-	 * @param: @param user
+	 * @param: @param voteContent
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("user") User user);
+	int count(@Param("voteContent") VoteContent voteContent);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
-	 * @param: @param user
+	 * @param: @param voteContent
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("user") User user);
+	int insert(@Param("voteContent") VoteContent voteContent);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
-	 * @param: @param user
+	 * @param: @param voteContent
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("user") User user);
+	int update(@Param("voteContent") VoteContent voteContent);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   

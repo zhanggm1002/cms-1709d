@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.pojo.Article;
 
-public interface UserDao {
+public interface ArticleDao {
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
@@ -15,7 +15,7 @@ public interface UserDao {
 	 * @return: User      
 	 * @throws
 	 */
-	User selectById(@Param("id") Integer id);
+	Article selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
 	 * @Description: 根据User查询列表  
@@ -24,7 +24,7 @@ public interface UserDao {
 	 * @return: List<User>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<Article> select(@Param("article") Article article);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
@@ -33,7 +33,7 @@ public interface UserDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("user") User user);
+	int count(@Param("article") Article article);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
@@ -42,7 +42,7 @@ public interface UserDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("user") User user);
+	int insert(@Param("article") Article article);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
@@ -51,7 +51,7 @@ public interface UserDao {
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("user") User user);
+	int update(@Param("article") Article article);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   

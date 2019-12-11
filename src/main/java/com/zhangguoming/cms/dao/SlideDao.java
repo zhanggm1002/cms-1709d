@@ -4,54 +4,54 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.pojo.Slide;
 
-public interface UserDao {
+public interface SlideDao {
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
 	 * @param: @param id
 	 * @param: @return      
-	 * @return: User      
+	 * @return: Slide      
 	 * @throws
 	 */
-	User selectById(@Param("id") Integer id);
+	Slide selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
-	 * @Description: 根据User查询列表  
-	 * @param: @param user
+	 * @Description: 根据Slide查询列表  
+	 * @param: @param slide
 	 * @param: @return      
-	 * @return: List<User>      
+	 * @return: List<Slide>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<Slide> select(@Param("slide") Slide slide);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
-	 * @param: @param user
+	 * @param: @param slide
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("user") User user);
+	int count(@Param("slide") Slide slide);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
-	 * @param: @param user
+	 * @param: @param slide
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("user") User user);
+	int insert(@Param("slide") Slide slide);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
-	 * @param: @param user
+	 * @param: @param slide
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("user") User user);
+	int update(@Param("slide") Slide slide);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   

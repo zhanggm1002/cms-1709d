@@ -4,54 +4,54 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.pojo.Category;
 
-public interface UserDao {
+public interface CategoryDao {
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
 	 * @param: @param id
 	 * @param: @return      
-	 * @return: User      
+	 * @return: Category      
 	 * @throws
 	 */
-	User selectById(@Param("id") Integer id);
+	Category selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
-	 * @Description: 根据User查询列表  
-	 * @param: @param user
+	 * @Description: 根据Category查询列表  
+	 * @param: @param category
 	 * @param: @return      
-	 * @return: List<User>      
+	 * @return: List<Category>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<Category> select(@Param("category") Category category);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
-	 * @param: @param user
+	 * @param: @param category
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("user") User user);
+	int count(@Param("category") Category category);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
-	 * @param: @param user
+	 * @param: @param category
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("user") User user);
+	int insert(@Param("category") Category category);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
-	 * @param: @param user
+	 * @param: @param category
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("user") User user);
+	int update(@Param("category") Category category);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   

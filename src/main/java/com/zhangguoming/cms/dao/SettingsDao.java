@@ -4,54 +4,54 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.pojo.Settings;
 
-public interface UserDao {
+public interface SettingsDao {
 	/**
 	 * @Title: selectById   
 	 * @Description: 根据Id，查询对象   
 	 * @param: @param id
 	 * @param: @return      
-	 * @return: User      
+	 * @return: Settings      
 	 * @throws
 	 */
-	User selectById(@Param("id") Integer id);
+	Settings selectById(@Param("id") Integer id);
 	/**
 	 * @Title: select   
-	 * @Description: 根据User查询列表  
-	 * @param: @param user
+	 * @Description: 根据Settings查询列表  
+	 * @param: @param settings
 	 * @param: @return      
-	 * @return: List<User>      
+	 * @return: List<Settings>      
 	 * @throws
 	 */
-	List<User> select(@Param("user") User user);
+	List<Settings> select(@Param("settings") Settings settings);
 	/**
 	 * @Title: count   
 	 * @Description: 查询数据条数   
-	 * @param: @param user
+	 * @param: @param settings
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int count(@Param("user") User user);
+	int count(@Param("settings") Settings settings);
 	/**
 	 * @Title: insert   
 	 * @Description: 插入一条记录   
-	 * @param: @param user
+	 * @param: @param settings
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int insert(@Param("user") User user);
+	int insert(@Param("settings") Settings settings);
 	/**
 	 * @Title: update   
 	 * @Description: 根据Id更新记录 
-	 * @param: @param user
+	 * @param: @param settings
 	 * @param: @return      
 	 * @return: int      
 	 * @throws
 	 */
-	int update(@Param("user") User user);
+	int update(@Param("settings") Settings settings);
 	/**
 	 * @Title: deleteById   
 	 * @Description: 根据Id删除记录   
