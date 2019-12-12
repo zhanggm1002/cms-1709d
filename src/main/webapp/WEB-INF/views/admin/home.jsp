@@ -6,6 +6,17 @@
 <title>Cms后台登录</title>
 <link href="/public/css/bootstrap.min.css" rel="stylesheet">
 <link href="/public/css/cms.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/public/kindeditor/themes/default/default.css" />
+<link rel="stylesheet" href="/public/kindeditor/plugins/code/prettify.css" />
+<script charset="utf-8" src="/public/kindeditor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="/public/kindeditor/lang/zh-CN.js"></script>
+<script charset="utf-8" src="/public/kindeditor/plugins/code/prettify.js"></script>
+
+<script>
+	KindEditor.ready(function(K) {
+	});
+</script>
 </head>
 <body>
 	<!-- 头信息 -->
