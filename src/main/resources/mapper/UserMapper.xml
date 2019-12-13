@@ -23,7 +23,7 @@
 	</select>
 	
 	<select id="count" resultType="int">
-		select count from cms_user
+		select count(1) from cms_user
 	</select>
 	
 	<insert id="insert">
