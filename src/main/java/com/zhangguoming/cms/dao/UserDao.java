@@ -80,4 +80,13 @@ public interface UserDao {
 	 * @throws
 	 */
 	int updateLocked(@Param("userId") Integer userId, @Param("locked")  int locked);
+	/**
+	 * @Title: selectByUsername   
+	 * @Description: 根据登录名，查询用户  
+	 * @param: @param username
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
+	 */
+	User selectByUsername(String username);
 }

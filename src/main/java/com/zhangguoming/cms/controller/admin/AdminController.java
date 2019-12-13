@@ -104,16 +104,6 @@ public class AdminController {
 	public String article() {
 		return "admin/article";
 	}
-	/**
-	 * @Title: settings   
-	 * @Description: 系统设置   
-	 * @param: @return      
-	 * @return: String      
-	 * @throws
-	 */
-	@RequestMapping("/settings")
-	public String settings() {
-		return "admin/settings";
-	}
+	
 
 }

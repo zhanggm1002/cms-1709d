@@ -13,7 +13,7 @@
 		select count from cms_settings
 	</select>
 	
-	<insert id="insert">
+	<insert id="insert" useGeneratedKeys="true" keyProperty="settings.id">
 		insert into cms_settings (site_domain, site_name, article_list_size, 
 	      slide_size, admin_username, admin_password
 	      )
@@ -21,16 +21,15 @@
 	      #{settings.slideSize}, #{settings.adminUsername}, #{settings.adminPassword}
 	      )
 	</insert>
-	
 	<update id="update">
 		update cms_settings
-	    set site_domain = #{siteDomain},
-	      site_name = #{siteName},
-	      article_list_size = #{articleListSize},
-	      slide_size = #{slideSize},
-	      admin_username = #{adminUsername},
-	      admin_password = #{adminPassword}
-	    where id = #{id}
+	    set site_domain = #{settings.siteDomain},
+	      site_name = #{settings.siteName},
+	      article_list_size = #{settings.articleListSize},
+	      slide_size = #{settings.slideSize},
+	      admin_username = #{settings.adminUsername},
+	      admin_password = #{settings.adminPassword}
+	    where id = #{settings.id}
 	</update>
 	
 	<delete id="deleteById">
