@@ -23,6 +23,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -53,10 +54,15 @@ public class FileManager {
 	 * @return: FileResult      
 	 * @throws
 	 */
+	@RequestMapping("upfile")
+	@ResponseBody
+	public FileResult upFile(HttpServletRequest request, @RequestParam("fileName") MultipartFile imgFile) throws FileUploadException {
+		return upload(request,imgFile);
+	}
 	@SuppressWarnings("unused")
 	@RequestMapping("upload")
 	@ResponseBody
-	public FileResult upload(HttpServletRequest request, MultipartFile imgFile) throws FileUploadException {
+	public FileResult upload(HttpServletRequest request, @RequestParam MultipartFile imgFile) throws FileUploadException {
 
 		log.info("开始上传文件啊");
 		// 文件保存目录路径 todo
@@ -175,9 +181,9 @@ public class FileManager {
 	public JSONObject manager(HttpServletRequest request) {
 
 		/** 根目录路径，可以指定绝对路径，比如 /var/www/attached **/
-		String rootPath = request.getSession().getServletContext().getRealPath("/") + "attached/";
+		String rootPath = picRoot;//request.getSession().getServletContext().getRealPath("/") + "attached/";
 		/** 根目录URL，可以指定绝对路径，比如 http://www.yoursite.com/attached **/
-		String rootUrl = request.getContextPath() + "/attached/";
+		String rootUrl = request.getContextPath() + picUrl;
 		/** 图片扩展名 **/
 		String[] fileTypes = new String[] { "gif", "jpg", "jpeg", "png", "bmp" };
 

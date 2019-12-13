@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.zhanggm.common.utils.Md5Util;
 import com.zhangguoming.cms.dao.ArticleDao;
 import com.zhangguoming.cms.pojo.Article;
 
@@ -23,7 +24,9 @@ public class ArticleController {
 	@RequestMapping("add")
 	public String add(Model model) {
 		Article article = articleDao.selectById(1);
-		model.addAttribute("htmlContent", article.getContent());
+		Md5Util.string2MD5("abc");
+		model.addAttribute("article", null);
+		
 		return "article/add";
 	}
 	/**

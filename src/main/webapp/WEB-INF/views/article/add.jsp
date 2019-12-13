@@ -59,7 +59,12 @@ private String htmlspecialchars(String str) {
 	<div class="form-group row">
 		<label for="inputEmail3" class="col-sm-2 col-form-label">文章图片</label>
 		<div class="col-sm-6">
-			<input type="file" class="form-control" placeholder="请输入标题">
+			<div class="input-prepend imgDive">
+				<jsp:include page="../common/uploadImg.jsp" >
+					<jsp:param name="feildName" value="picture" />
+					<jsp:param name="feildValue" value="${article.picture }"/>
+				</jsp:include>
+			</div>
 		</div>
 	</div>
 	<div class="form-group row">
@@ -87,7 +92,7 @@ private String htmlspecialchars(String str) {
 	<div class="form-group row">
 		<label for="inputEmail3" class="col-sm-2 col-form-label">文章内容</label>
 		<div class="col-sm-10">
-			<textarea name="content1" cols="100" rows="8" style="width:760px;height:200px;visibility:hidden;">${htmlContent}</textarea>
+			<textarea name="content1" cols="100" rows="8" style="width:760px;height:200px;visibility:hidden;">${article.content}</textarea>
 		</div>
 	</div>
 	<div class="form-group row">
