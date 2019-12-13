@@ -14,8 +14,7 @@
 <script charset="utf-8" src="/public/kindeditor/plugins/code/prettify.js"></script>
 
 <script>
-	KindEditor.ready(function(K) {
-	});
+	KindEditor.ready(function(K) {});
 </script>
 </head>
 <body>

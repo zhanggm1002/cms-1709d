@@ -59,7 +59,7 @@ private String htmlspecialchars(String str) {
 	<div class="form-group row">
 		<label for="inputEmail3" class="col-sm-2 col-form-label">文章图片</label>
 		<div class="col-sm-6">
-			<div class="input-prepend imgDive">
+			<div class="input-prepend">
 				<jsp:include page="../common/uploadImg.jsp" >
 					<jsp:param name="feildName" value="picture" />
 					<jsp:param name="feildValue" value="${article.picture }"/>
