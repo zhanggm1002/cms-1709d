@@ -1,5 +1,7 @@
 package com.zhangguoming.cms.controller.admin;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,7 +10,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.github.pagehelper.PageInfo;
+import com.zhangguoming.cms.pojo.Article;
+import com.zhangguoming.cms.pojo.Channel;
 import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.service.ArticleService;
 import com.zhangguoming.cms.service.UserService;
 
 @Controller
@@ -16,6 +21,9 @@ import com.zhangguoming.cms.service.UserService;
 public class AdminController {
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ArticleService articleService;
 	
 	/**
 	 * @Title: login   
@@ -95,15 +103,52 @@ public class AdminController {
 	
 	/**
 	 * @Title: article   
-	 * @Description: 文章管理  
+	 * @Description: 文章管理     
+	 * @param: @param article
+	 * @param: @param model
+	 * @param: @param pageNum
+	 * @param: @param pageSize
 	 * @param: @return      
 	 * @return: String      
 	 * @throws
 	 */
 	@RequestMapping("/article")
-	public String article() {
+	public String article(Article article,Model model,
+			@RequestParam(value="pageNum",defaultValue="1") int pageNum,@RequestParam(value="pageSize",defaultValue="3") int pageSize) {
+		PageInfo<Article> pageInfo = articleService.getPageInfo(article,pageNum,pageSize);
+		model.addAttribute("pageInfo", pageInfo);
+		List<Channel> channelList = articleService.getChannelList();
+		model.addAttribute("channelList", channelList);
 		return "admin/article";
 	}
+	
+	/**
+	 * @Title: updateArticleStatus   
+	 * @Description: 修改文章状态   
+	 * @param: @param article
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	@RequestMapping("/article/update/status")
+	@ResponseBody
+	public boolean updateArticleStatus(Article article) {
+		return articleService.updateStatus(article.getId(), article.getStatus());
+	}
+	/**
+	 * @Title: addHot  
+	 * @Description: 文章加热
+	 * @param: @param article
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	@RequestMapping("/article/addHot")
+	@ResponseBody
+	public boolean addHot(Article article) {
+		return articleService.addHot(article.getId());
+	}
+	
 	
 
 }

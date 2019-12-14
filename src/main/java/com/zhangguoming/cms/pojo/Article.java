@@ -19,6 +19,10 @@ public class Article implements Serializable{
     private Integer channelId;
 
     private Integer categoryId;
+    
+    private String channelName;
+
+    private String categoryName;
 
     private Integer userId;
 
@@ -58,7 +62,23 @@ public class Article implements Serializable{
         return title;
     }
 
-    public void setTitle(String title) {
+    public String getChannelName() {
+		return channelName;
+	}
+
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
+	}
+
+	public String getCategoryName() {
+		return categoryName;
+	}
+
+	public void setCategoryName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
+	public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
     }
 

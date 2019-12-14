@@ -4,16 +4,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.github.pagehelper.PageInfo;
 import com.zhanggm.common.utils.Md5Util;
 import com.zhangguoming.cms.dao.ArticleDao;
 import com.zhangguoming.cms.pojo.Article;
+import com.zhangguoming.cms.pojo.User;
 
 @Controller
 @RequestMapping("/article/")
 public class ArticleController {
 	@Autowired
 	private ArticleDao articleDao;
+	
 	/**
 	 * @Title: add   
 	 * @Description: 发布文章   
