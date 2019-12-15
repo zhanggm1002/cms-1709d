@@ -1,6 +1,5 @@
 package com.zhangguoming.cms.controller.admin;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 

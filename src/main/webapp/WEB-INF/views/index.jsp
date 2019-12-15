@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+h<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html>
@@ -14,10 +14,10 @@
 			<img src="https://v4.bootcss.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
 		</a>
 		<a class="nav-link" href="#">发文</a> 
-		<a class="nav-link" href="#">个人中心</a> 
+		<a class="nav-link" href="/user/center">个人中心</a> 
 		<a class="nav-link" href="javascript:;">蝈蝈</a>
 		<a class="nav-link" href="/user/logout">退出</a>
-		<a class="nav-link" href="/user/logout">登录</a>
+		<a class="nav-link" href="/user/login">登录</a>
 	</nav>
 	<div class="container-fluid">
 		<div class="row offset-1" style="margin-top: 15px;">
@@ -37,7 +37,7 @@
 				    <a class="nav-link" href="#">科技</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link select" href="#">热点</a>
+				    <a class="nav-link" href="#">热点</a>
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="#">直播</a>
@@ -49,7 +49,7 @@
 				    <a class="nav-link" href="#">科技</a>
 				  </li>
 				  <li class="nav-item">
-				    <a class="nav-link select" href="#">热点</a>
+				    <a class="nav-link" href="#">热点</a>
 				  </li>
 				  <li class="nav-item">
 				    <a class="nav-link" href="#">直播</a>
@@ -104,7 +104,7 @@
 					  <img src="https://p3.pstatp.com/list/190x124/pgc-image/d14a9ef6392b4afa87d6f6f7b85dd9a8" class="mr-3" alt="...">
 					  <div class="media-body">
 					    <h4 class="mt-1">
-					    	<a href="#">这次，杨超越的纯洁人设崩塌了？</a>
+					    	<a href="/article/1.html">这次，杨超越的纯洁人设崩塌了？</a>
 					    </h4>
 					    <p style="color: #999;">蝈蝈  20分钟前</p>
 					  </div>

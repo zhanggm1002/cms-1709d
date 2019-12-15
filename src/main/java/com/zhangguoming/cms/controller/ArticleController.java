@@ -4,13 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import com.github.pagehelper.PageInfo;
 import com.zhanggm.common.utils.Md5Util;
 import com.zhangguoming.cms.dao.ArticleDao;
 import com.zhangguoming.cms.pojo.Article;
-import com.zhangguoming.cms.pojo.User;
 
 @Controller
 @RequestMapping("/article/")
@@ -30,7 +27,6 @@ public class ArticleController {
 		Article article = articleDao.selectById(1);
 		Md5Util.string2MD5("abc");
 		model.addAttribute("article", null);
-		
 		return "article/add";
 	}
 	/**

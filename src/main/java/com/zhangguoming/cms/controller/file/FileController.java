@@ -34,9 +34,9 @@ import org.springframework.web.multipart.MultipartFile;
  */
 @Controller
 @RequestMapping("/file/")
-public class FileManager {
+public class FileController {
 	/** 日志记录器 **/
-	private static Logger log = Logger.getLogger(FileManager.class);
+	private static Logger log = Logger.getLogger(FileController.class);
 	/** cms.properties配置文件中读取 **/
 	@Value("${upload.path}")
 	String picRoot;
