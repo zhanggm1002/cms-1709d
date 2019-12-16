@@ -1,5 +1,5 @@
-h<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE>
 <html>
 <head>
@@ -13,11 +13,15 @@ h<%@ page language="java" contentType="text/html; charset=UTF-8"
 		<a class="nav-link navbar-brand" href="#">
 			<img src="https://v4.bootcss.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
 		</a>
-		<a class="nav-link" href="#">发文</a> 
-		<a class="nav-link" href="/user/center">个人中心</a> 
-		<a class="nav-link" href="javascript:;">蝈蝈</a>
-		<a class="nav-link" href="/user/logout">退出</a>
-		<a class="nav-link" href="/user/login">登录</a>
+		<c:if test="${USER_SESSION_ID!=null }">
+			<a class="nav-link" href="/user/center">发文</a> 
+			<a class="nav-link" href="/user/center">个人中心</a> 
+			<a class="nav-link" href="javascript:;">${USER_SESSION_ID.nickname }</a>
+			<a class="nav-link" href="/user/logout">退出</a>
+		</c:if>
+		<c:if test="${USER_SESSION_ID==null }">
+			<a class="nav-link" href="/user/login">登录</a>
+		</c:if>
 	</nav>
 	<div class="container-fluid">
 		<div class="row offset-1" style="margin-top: 15px;">

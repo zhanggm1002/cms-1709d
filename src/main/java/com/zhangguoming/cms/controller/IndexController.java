@@ -12,7 +12,7 @@ public class IndexController {
 	}
 	
 	
-	@RequestMapping("/{channelId}/{cateId}.html")
+	@RequestMapping("/{channelId}/{cateId}/.html")
 	public String channel(@PathVariable Integer channelId,@PathVariable Integer cateId) {
 		return "index";
 	}

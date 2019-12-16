@@ -3,17 +3,25 @@ package com.zhangguoming.cms.controller;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.zhanggm.common.utils.StringUtil;
+import com.zhangguoming.cms.common.CmsConstant;
+import com.zhangguoming.cms.common.CmsMd5Util;
 import com.zhangguoming.cms.common.JsonResult;
 import com.zhangguoming.cms.pojo.User;
+import com.zhangguoming.cms.service.UserService;
 
 @Controller
 @RequestMapping("/user/")
 public class UserController {
+	@Autowired
+	private UserService userService;
+	
 	/**
 	 * @Title: login   
 	 * @Description: 用户登录界面   
@@ -23,6 +31,7 @@ public class UserController {
 	 */
 	@RequestMapping(value="login",method=RequestMethod.GET)
 	public Object login() {
+		
 		return "/user/login";
 	}
 	/**
@@ -35,8 +44,39 @@ public class UserController {
 	 * @throws
 	 */
 	@RequestMapping(value="login",method=RequestMethod.POST)
-	public @ResponseBody Object login(User user,HttpSession session) {
+	@ResponseBody
+	public Object login(User user,HttpSession session) {
+		//判断用户名和密码
+		if(StringUtil.isBlank(user.getUsername()) || StringUtil.isBlank(user.getPassword())) {
+			return JsonResult.fail(1000, "用户名和密码不能为空");
+		}
+		//查询用户
+		User userInfo = userService.getByUsername(user.getUsername());
+		//用户为空
+		if(userInfo==null) {
+			return JsonResult.fail(1000, "用户名或密码错误");
+		}
+		//判断密码
+		String string2md5 = CmsMd5Util.string2MD5(user.getPassword());
+		if(string2md5.equals(userInfo.getPassword())) {
+			session.setAttribute(CmsConstant.UserSessionKey, userInfo);
+			return JsonResult.sucess();
+		}
 		return JsonResult.fail(500, "未知错误");
+	}
+	/**
+	 * @Title: logout   
+	 * @Description: TODO(描述这个方法的作用)   
+	 * @param: @param response
+	 * @param: @param session
+	 * @param: @return      
+	 * @return: Object      
+	 * @throws
+	 */
+	@RequestMapping("logout")
+	public Object logout(HttpServletResponse response,HttpSession session) {
+		session.removeAttribute(CmsConstant.UserSessionKey);
+		return "redirect:/";
 	}
 	
 	/**
@@ -62,20 +102,6 @@ public class UserController {
 	@RequestMapping(value="register",method=RequestMethod.POST)
 	public @ResponseBody Object register(User user,HttpSession session) {
 		return JsonResult.fail(500, "未知错误");
-	}
-	
-	/**
-	 * @Title: logout   
-	 * @Description: 用户退出登录接口   
-	 * @param: @param response
-	 * @param: @param session
-	 * @param: @return      
-	 * @return: Object      
-	 * @throws
-	 */
-	@RequestMapping("logout")
-	public Object logout(HttpServletResponse response,HttpSession session) {
-		return "redirect:/";
 	}
 	
 	@RequestMapping("center")

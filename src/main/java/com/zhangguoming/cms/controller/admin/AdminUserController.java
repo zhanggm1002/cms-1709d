@@ -56,7 +56,7 @@ public class AdminUserController {
 	
 	@RequestMapping("logout")
 	public Object logout(HttpServletResponse response,HttpSession session) {
-		session.invalidate();
+		session.removeAttribute(CmsConstant.UserAdminSessionKey);
 		return "redirect:/admin/";
 	}
 }
