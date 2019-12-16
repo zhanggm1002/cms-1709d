@@ -73,7 +73,8 @@
 	</div>
 	<div class="form-group row">
 		<div class="col-sm-10">
-			<button type="button" class="btn btn-primary" onclick="save();">保存并提交审核</button>
+			<button type="button" class="btn btn-primary" onclick="save();">保存</button>
+			<button type="button" class="btn btn-primary" onclick="saveAndCheck();">保存并提交审核</button>
 		</div>
 	</div>
 </form>
@@ -83,7 +84,7 @@
 		$("#categoryId").html('<option selected>请选择分类...</option>');
 		$.get("/article/getCateList",{channelId:channelId},function(res){
 			for (var i = 0; i < res.data.length; i++) {
-				$("#categoryId").append('<option value="'+res.data[i].id+'">'+res.data[i].name+'</option>');
+				$("#categoryId").append('<option value="'+res.data[i].id+'" selected>'+res.data[i].name+'</option>');
 			}
 		})
 	}

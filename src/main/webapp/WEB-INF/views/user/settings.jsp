@@ -3,15 +3,34 @@
 <form>
 	<input type="hidden" name="id" value="${settings.id }">
 	<div class="form-group row">
-		<label for="inputEmail3" class="col-sm-2 col-form-label">网站域名</label>
+		<label for="inputEmail3" class="col-sm-2 col-form-label">我的昵称</label>
 		<div class="col-sm-10">
-			<input type="text" name="siteDomain" value="${settings.siteDomain }" class="form-control" placeholder="http://www.1709d.com">
+			<input type="text" name="siteDomain" value="${settings.siteDomain }" class="form-control" placeholder="蝈蝈">
 		</div>
 	</div>
 	<div class="form-group row">
-		<label for="inputEmail3" class="col-sm-2 col-form-label">网站名称</label>
+		<label for="inputEmail3" class="col-sm-2 col-form-label">我的生日</label>
+		<div class="col-sm-3">
+			<input type="date">
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="inputEmail3" class="col-sm-2 col-form-label">我的性别</label>
+		<div class="col-sm-3">
+			   <div class="form-check">
+				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+				  <label class="form-check-label" for="exampleRadios1">男</label>
+			   </div>
+			   <div class="form-check">
+				  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+				  <label class="form-check-label" for="exampleRadios1">女</label>
+			   </div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label for="inputEmail3" class="col-sm-2 col-form-label">博客网址</label>
 		<div class="col-sm-10">
-			<input type="text" name="siteName" value="${settings.siteName }" class="form-control" placeholder="今日头条">
+			<input type="text" name="siteName" value="${settings.siteName }" class="form-control" placeholder="https://www.csdn.net/nav/java">
 		</div>
 	</div>
 	<div class="form-group row">
