@@ -157,8 +157,12 @@ public class UserController {
 	}
 	
 	@RequestMapping("article")
-	public String article(Article article,Model model,
+	public String article(Article article,Model model,HttpSession session,
 			@RequestParam(value="pageNum",defaultValue="1") int pageNum,@RequestParam(value="pageSize",defaultValue="3") int pageSize) {
+		//设置用户Id
+		User userInfo = (User)session.getAttribute(CmsConstant.UserSessionKey);
+		article.setUserId(userInfo.getId());
+		//查询文章
 		PageInfo<Article> pageInfo = articleService.getPageInfo(article,pageNum,pageSize);
 		model.addAttribute("pageInfo", pageInfo);
 		List<Channel> channelList = articleService.getChannelList();

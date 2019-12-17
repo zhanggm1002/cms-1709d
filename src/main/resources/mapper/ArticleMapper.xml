@@ -12,9 +12,16 @@
 		<if test="article.title!=null and article.title!=''">
 			and article.title like '%${article.title}%'
 		</if>
+		<if test="article.userId!=null">
+			and article.user_id=#{article.userId}
+		</if>
 		<if test="article.status!=null">
 			and article.status=#{article.status}
 		</if>
+		<if test="article.statusIds!=null">
+			and article.status in (${article.statusIds})
+		</if>
+		order by updated desc
 	</select>
 	
 	<select id="selectById" resultType="Article">
