@@ -3,6 +3,8 @@ package com.zhangguoming.cms.pojo;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.zhanggm.common.utils.DateUtil;
+
 public class User implements Serializable{
     /**   
 	 * @Fields serialVersionUID : TODO(这个变量表示什么)   
@@ -35,6 +37,10 @@ public class User implements Serializable{
     
     public boolean isAdmin() {
     	return "1".equals(getRole());
+    }
+    
+    public String getBirthdayStr() {
+        return DateUtil.format(this.getBirthday());
     }
 
     @Override
@@ -79,6 +85,8 @@ public class User implements Serializable{
     public Date getBirthday() {
         return birthday;
     }
+    
+    
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
