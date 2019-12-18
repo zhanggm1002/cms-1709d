@@ -78,6 +78,15 @@ public interface UserService {
 	 * @throws
 	 */
 	boolean isExist(String username);
+	/**
+	 * @Title: getById   
+	 * @Description: 根据用户Id查询User   
+	 * @param: @param id
+	 * @param: @return      
+	 * @return: User      
+	 * @throws
+	 */
+	User getById(Integer id);
 	
 	
 }

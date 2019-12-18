@@ -25,6 +25,8 @@ public class Article implements Serializable{
     private String categoryName;
 
     private Integer userId;
+    
+    private String nickname;
 
     private Integer hits;
 
@@ -61,6 +63,18 @@ public class Article implements Serializable{
 
 	public void setStatusIds(String statusIds) {
 		this.statusIds = statusIds;
+	}
+
+
+
+	public String getNickname() {
+		return nickname;
+	}
+
+
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
 	}
 
 

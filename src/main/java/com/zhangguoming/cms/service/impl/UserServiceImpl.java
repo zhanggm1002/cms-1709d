@@ -68,5 +68,10 @@ public class UserServiceImpl implements UserService {
 	public boolean isExist(String username) {
 		return getByUsername(username)!=null;
 	}
+
+	@Override
+	public User getById(Integer id) {
+		return userDao.selectById(id);
+	}
 	
 }
