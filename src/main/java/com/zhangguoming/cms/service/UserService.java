@@ -69,6 +69,15 @@ public interface UserService {
 	 * @throws
 	 */
 	boolean update(User user);
+	/**
+	 * @Title: isExist   
+	 * @Description: 根据用户名判断用户是否存在   
+	 * @param: @param username
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean isExist(String username);
 	
 	
 }

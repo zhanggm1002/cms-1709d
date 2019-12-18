@@ -5,7 +5,7 @@
   <select id="select" resultType="Article">
 		select article.*,article.channel_id channelId,article.user_id userId,article.category_id categoryId,channel.name channelName,cate.name categoryName
 		from cms_article article,cms_channel channel,cms_category cate
-		WHERE article.channel_id=channel.id AND article.category_id=cate.id
+		WHERE article.channel_id=channel.id AND article.category_id=cate.id and article.deleted=0
 		<if test="article.channelId!=null">
 			and article.channel_id = #{article.channelId}
 		</if>
@@ -28,6 +28,12 @@
 		select article.*,article.channel_id channelId,article.user_id userId,article.category_id categoryId
 		 from cms_article article where id=#{id}
 	</select>
+	
+	<select id="selectByIds" resultType="Article">
+		select article.*,article.channel_id channelId,article.user_id userId,article.category_id categoryId
+		 from cms_article article where id in (${ids})
+	</select>
+	
 	
 	<select id="count" resultType="int">
 		select count(1) from cms_article
@@ -74,11 +80,17 @@
 	    where id = #{id}
 	</update>
 	
-	<delete id="deleteById">
-		delete from cms_article where id=#{id}
-	</delete>
+	<update id="deleteById">
+		update cms_article
+	    set 
+	      deleted = 1
+	    where id = #{id}
+	</update>
 	
-	<delete id="deleteByIds">
-		delete from cms_article where id in(${ids})
-	</delete>
+	<update id="deleteByIds">
+		update cms_article
+	    set 
+	      deleted = 1
+	    where id in (${ids})
+	</update>
 </mapper>

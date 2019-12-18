@@ -74,4 +74,20 @@ public class ArticleServiceImpl implements ArticleService {
 		return categoryDao.selectListByChannelId(channelId);
 	}
 
+	@Override
+	public boolean delByIds(String ids) {
+		return articleDao.deleteByIds(ids)>0;
+	}
+
+	@Override
+	public boolean isAllCheck(String ids) {
+		List<Article> articleList = articleDao.selectByIds(ids);
+		for (Article article:articleList) {
+			if(article.getStatus()==1) {
+				return false;
+			}
+		}
+		return true;
+	}
+
 }

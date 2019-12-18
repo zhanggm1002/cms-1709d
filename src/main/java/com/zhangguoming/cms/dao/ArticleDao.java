@@ -89,4 +89,13 @@ public interface ArticleDao {
 	 * @throws
 	 */
 	int addHot(@Param("id") Integer id);
+	/**
+	 * @Title: selectByIds   
+	 * @Description: 根据Ids查询文章  
+	 * @param: @param ids
+	 * @param: @return      
+	 * @return: List<Article>      
+	 * @throws
+	 */
+	List<Article> selectByIds(@Param("ids") String ids);
 }

@@ -48,7 +48,7 @@
   <tbody>
 	<c:forEach items="${pageInfo.list }" var="item">
        <tr>
-	      <th><input type="checkbox" value="${item.id }" name="chk_list"></th>
+	      <th><input type="checkbox" value="${item.id }"  name="chk_list"></th>
 	      <th scope="row">${item.id }</th>
 	      <td title="${item.title }">${fn:substring(item.title,0,10) }</td>
 	      <td>${item.channelName }</td>
@@ -66,7 +66,14 @@
    	</c:forEach>
   </tbody>
 </table>
-<jsp:include page="../common/page.jsp"></jsp:include>
+<div class="row">
+	<div class="col-2">
+		<button type="button" class="btn btn-danger" onclick="delAlert();">删除</button>
+	</div>
+	<div class="col-10">
+		<jsp:include page="../common/page.jsp"></jsp:include>
+	</div>
+</div>
 <div class="alert alert-danger" role="alert" style="display: none"></div>
 
 <div class="modal" tabindex="-1" role="dialog" id="checkModal">
@@ -103,7 +110,27 @@
   </div>
 </div>
 
-<script src="/public/js/checkbox.js"></script>
+<div class="modal" tabindex="-1" role="dialog" id="delModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">确认框</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        	你确认删除选择的数据吗？
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="batchDel();">确认删除</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/public/js/checkbox.js?v1.00"></script>
 <script>
 	function query(){
 		var params = $("form").serialize();
@@ -121,6 +148,32 @@
 	
 	function view(id){
 		window.open("/article/"+id+".html");
+	}
+	
+	function delAlert(){
+		var ids = getCheckboxIds();
+		if(ids==""){
+			$(".alert").html("请选择要删除的文章");
+			$(".alert").show();
+			return;
+		}
+		$('#delModal').modal('show')
+	}
+	
+	function batchDel(){
+		var ids = getCheckboxIds();
+		console.log(ids);
+		$.post("/article/delByIds",{ids:ids},function(res){
+			if(res.result){
+				$("#queryForm #pageNum").val(1);
+				$('#delModal').modal('hide');
+				query();
+			}else{
+				$(".alert").html(res.message);
+				$(".alert").show();
+				$('#delModal').modal('hide');
+			}
+		});
 	}
 	
 </script>

@@ -74,4 +74,22 @@ public interface ArticleService {
 	 * @throws
 	 */
 	List<Category> getCateListByChannelId(Integer channelId);
+	/**
+	 * @Title: delByIds   
+	 * @Description: 批量删除   
+	 * @param: @param ids
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean delByIds(String ids);
+	/**
+	 * @Title: isAllCheck   
+	 * @Description: 根据Ids判断文章是否已审核   
+	 * @param: @param ids
+	 * @param: @return      
+	 * @return: boolean      
+	 * @throws
+	 */
+	boolean isAllCheck(String ids);
 }
