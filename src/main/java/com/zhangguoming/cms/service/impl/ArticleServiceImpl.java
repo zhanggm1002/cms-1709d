@@ -110,4 +110,9 @@ public class ArticleServiceImpl implements ArticleService {
 		 return new PageInfo<>(articleList);
 	}
 
+	@Override
+	public List<Article> getNewList(int num) {
+		return articleDao.selectNewList(num);
+	}
+
 }

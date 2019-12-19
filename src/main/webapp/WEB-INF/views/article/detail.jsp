@@ -9,6 +9,9 @@
 <link href="/public/css/bootstrap.min.css" rel="stylesheet">
 <link href="/public/css/index.css" rel="stylesheet">
 <title>${article.title }</title>
+<script type="text/javascript">
+	var articleId = "${id}";
+</script>
 </head>
 <body>
 	<nav class="nav justify-content-start" style="background-color: #222;">
@@ -39,35 +42,18 @@
 				<div style="font-size: 24">
 					${article.content }
 				</div>
-				<div class="row" style="margin-top: 10px;">
-					  <div class="col-10">
-						  <form class="was-validated">
-						    <textarea class="form-control" rows="2" id="content" placeholder="请输入评论内容" required></textarea>
-						  </form>
-					  </div>
-					  <div style="margin-top: 10px;">
-					    <button type="button" class="btn btn-primary">评论</button>
-					  </div>
-				</div>
-				<div class="row">
-					  <div class="col-12">
-						  <div style="margin-top: 10px;margin-bottom: 10px;color: #777;">
-								<span><img src="http://p9.pstatp.com/thumb/dae600031a5e3214f63a" style="height:28;border-radius: 100px;" alt="">张琪</span> 
-								<span>2019-12-18 16:33:37</span>
+				<div id="comment">
+					<div class="row" style="margin-top: 10px;">
+						  <div class="col-10">
+							  <form class="was-validated">
+							    <textarea class="form-control" rows="2" id="content" placeholder="请输入评论内容" required></textarea>
+							  </form>
 						  </div>
-						  <div style="margin-top: 10px;margin-bottom: 10px;">
-								给习主席点大赞！祖国统一！中华复兴！团结一致！再创辉煌！祝福澳门繁荣发展！祝福伟大祖国繁荣昌盛！[赞][赞][赞][玫瑰][玫瑰][玫瑰]
+						  <div style="margin-top: 10px;">
+						    <button type="button" class="btn btn-primary" onclick="addComment();">评论</button>
 						  </div>
-					  </div>
-					  <div class="col-12">
-						  <div style="margin-top: 10px;margin-bottom: 10px;color: #777;">
-								<span><img src="http://p9.pstatp.com/thumb/dae600031a5e3214f63a" style="height:28;border-radius: 100px;" alt="">张琪</span> 
-								<span>2019-12-18 16:33:37</span>
-						  </div>
-						  <div style="margin-top: 10px;margin-bottom: 10px;">
-								给习主席点大赞！祖国统一！中华复兴！团结一致！再创辉煌！祝福澳门繁荣发展！祝福伟大祖国繁荣昌盛！[赞][赞][赞][玫瑰][玫瑰][玫瑰]
-						  </div>
-					  </div>
+					</div>
+					
 				</div>
 			</div>
 			
@@ -93,5 +79,27 @@
 
 	<script type="text/javascript" src="/public/js/jquery.min.1.12.4.js"></script>
 	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+	<script type="text/javascript">
+		$.get("/comment/list",{articleId:articleId},function(res){
+			$("#comment").append(res);
+		},"html");
+		
+		function addComment(){
+			var content = $("#content").val();
+			if(content==null || content==""){
+				alert("评论内容不能为空");
+				return;
+			}
+			$.post("/comment/add",{articleid:articleId,content:content},function(res){
+				if(res.result){
+					$("#content").val("");
+					gotoPage(1);
+				}else if(res.errorCode==10000){
+					alert("你还未登录");
+					location.href="/user/login";
+				}
+			})
+		}
+	</script>
 </body>
 </html>
