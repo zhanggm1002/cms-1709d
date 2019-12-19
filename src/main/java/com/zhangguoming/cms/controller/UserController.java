@@ -72,7 +72,7 @@ public class UserController {
 			session.setAttribute(CmsConstant.UserSessionKey, userInfo);
 			return JsonResult.sucess();
 		}
-		return JsonResult.fail(500, "未知错误");
+		return JsonResult.fail(1000, "用户名或密码错误");
 	}
 	/**
 	 * @Title: logout   

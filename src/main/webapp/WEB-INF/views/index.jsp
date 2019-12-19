@@ -7,9 +7,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link href="/public/css/bootstrap.min.css" rel="stylesheet">
 <link href="/public/css/index.css" rel="stylesheet">
-<style type="text/css">
-	
-</style>
+<script type="text/javascript">
+	var channelId = '${channelId}';
+	var cateId = '${cateId}';
+</script>
 <title>前台首页</title>
 </head>
 <body>
@@ -177,8 +178,14 @@
 	<script type="text/javascript" src="/public/js/jquery.min.1.12.4.js"></script>
 	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
+		var cId = "${channelId}";
 		function gotoPage(pageNum){
-			window.location.href="/hot/"+pageNum+".html"
+			if(channelId==''){
+				window.location.href="/hot/"+pageNum+".html"
+			}else{
+				window.location.href="/"+channelId+"/"+cateId+"/"+pageNum+".html"
+			}
+			
 		}
 	</script>
 </body>
