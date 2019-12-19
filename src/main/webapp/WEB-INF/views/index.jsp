@@ -15,9 +15,16 @@
 </head>
 <body>
 	<nav class="nav justify-content-start" style="background-color: #222;">
-		<a class="nav-link navbar-brand" href="#">
-			<img src="https://v4.bootcss.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
-		</a>
+		<c:if test="${USER_SESSION_ID!=null && USER_SESSION_ID.headimg!=null }">
+			<a class="nav-link navbar-brand" href="#">
+				<img src="${USER_SESSION_ID.headimg }" width="30" height="30" alt="">
+			</a>
+		</c:if>
+		<c:if test="${USER_SESSION_ID==null || USER_SESSION_ID.headimg==null  }">
+			<a class="nav-link navbar-brand" href="#">
+				<img src="https://v4.bootcss.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+			</a>
+		</c:if>
 		<c:if test="${USER_SESSION_ID!=null }">
 			<a class="nav-link" href="/user/center">发文</a> 
 			<a class="nav-link" href="/user/center">个人中心</a> 
