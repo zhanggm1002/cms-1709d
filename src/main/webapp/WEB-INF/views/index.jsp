@@ -37,7 +37,7 @@
 	</nav>
 	<div class="container-fluid">
 		<div class="row offset-1" style="margin-top: 15px;">
-			<div class="col-1">
+			<div class="col-1" style="padding-right:5px;padding-left:5px;">
 				<!-- 左侧导航 -->
 				<ul class="nav flex-column">
 				   <li class="nav-item">
@@ -51,7 +51,6 @@
 				</ul>
 			</div>
 			<div class="col-6">
-				
 				<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
 				  <div class="carousel-inner">
 					  <c:forEach items="${slideList }" var="item" varStatus="s">
@@ -100,6 +99,11 @@
 				</div>
 			</div>
 			<div class="col-3">
+			  <div class="row form-row">
+			    <div class="col">
+			      <input type="text" class="form-control" id="search" placeholder="请输入关键词">
+			    </div>
+			  </div>
 				<div class="right">
 					<div>最新文章</div>
 					<ul class="list-unstyled">
@@ -137,6 +141,11 @@
 				window.location.href="/"+channelId+"/"+cateId+"/"+pageNum+".html"
 			}
 		}
+		$("#search").bind("keyup",function(e){
+			if(e.keyCode=='13'){
+				console.log($(this).val());
+			}
+		})
 	</script>
 </body>
 </html>
