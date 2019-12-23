@@ -46,6 +46,8 @@ public class Article implements Serializable{
     
     private String statusIds;
     
+    private int tousuCnt;
+    
     
     @Override
 	public String toString() {
@@ -87,7 +89,19 @@ public class Article implements Serializable{
         this.id = id;
     }
 
-    public String getTitle() {
+    public int getTousuCnt() {
+		return tousuCnt;
+	}
+
+
+
+	public void setTousuCnt(int tousuCnt) {
+		this.tousuCnt = tousuCnt;
+	}
+
+
+
+	public String getTitle() {
         return title;
     }
 
