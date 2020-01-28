@@ -13,10 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.zhanggm.common.utils.Md5Util;
 import com.zhangguoming.cms.common.CmsConstant;
 import com.zhangguoming.cms.common.JsonResult;
-import com.zhangguoming.cms.dao.ArticleDao;
 import com.zhangguoming.cms.pojo.Article;
 import com.zhangguoming.cms.pojo.Category;
 import com.zhangguoming.cms.pojo.Channel;
